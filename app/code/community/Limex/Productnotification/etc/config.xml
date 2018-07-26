@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Limex_Productnotification>
+            <version>0.1.0</version>
+        </Limex_Productnotification>
+    </modules>
+
+	
+	
+    <global>
+     
+	 
+	    <events>
+		
+		
+		
+		<catalog_product_save_after>
+            <observers>
+                <productchange>
+                    <type>singleton</type>
+                    <class>Limex_Productnotification_Model_Observer</class>
+                    <method>detectProductChanges</method>
+                </productchange>
+            </observers>
+        </catalog_product_save_after>		
+		
+		<catalog_product_attribute_update_before>
+            <observers>
+                <product_attributes_change>
+                    <type>singleton</type>
+                    <class>Limex_Productnotification_Model_Observer</class>
+                    <method>detectProductAttributesChanges</method>
+                </product_attributes_change>
+            </observers>
+        </catalog_product_attribute_update_before>
+		
+		
+		<catalog_product_import_finish_before>
+            <observers>
+                <productchangess>
+                    <type>singleton</type>
+                    <class>Limex_Productnotification_Model_Observer</class>
+                    <method>detectImportProductChanges</method>
+                </productchangess>
+            </observers>
+        </catalog_product_import_finish_before>
+        
+		
+        </events>
+	 
+	 <template>
+            <email>
+                <limex_productnotification_tpl module="Limex_Productnotification">
+                    <label>Product Notification</label>
+                    <file>Limex_Productnotification.html</file>
+                    <type>html</type>
+                </limex_productnotification_tpl>
+            </email>
+        </template>
+	 
+	 
+	 
+		<models>
+            <limex_productnotification>
+                <class>Limex_Productnotification_Model</class>
+            </limex_productnotification>          
+        </models>
+	    <helpers>
+            <limex_productnotification>
+                <class>Limex_Productnotification_Helper</class>
+            </limex_productnotification>
+        </helpers>
+    </global>
+	  <admin />
+    <adminhtml />
+</config>

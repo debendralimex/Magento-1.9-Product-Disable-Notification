@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Limex_Productnotification>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Limex_Productnotification>
+    </modules>
+</config>
